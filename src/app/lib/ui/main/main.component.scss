@@ -1,0 +1,10 @@
+.mat-sidenav-container{
+  background-color: white
+}
+.mat-sidenav{
+  max-height: 99px
+}
+.mat-sidenav {
+  top: 50%;
+  transform: translateY(-50%);
+}

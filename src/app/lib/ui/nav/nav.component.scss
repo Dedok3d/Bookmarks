@@ -1,0 +1,21 @@
+.title-center {
+  flex: 1 1 auto;
+  text-align: center;
+}
+// #item{
+//   padding-right: 30px
+// }
+span {
+  padding-right: 30px;
+  cursor:pointer;
+}
+
+a {
+  cursor:pointer;
+}
+a:hover {
+    color: yellow;
+}
+span:hover {
+    color: yellow;
+}
