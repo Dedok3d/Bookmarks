@@ -1,9 +1,5 @@
-
-
-
-
-
 <div align="center">
-  <app-container *ngIf="controller.current.add"></app-container>
+  <app-add *ngIf="controller.current.add"></app-add>
+  <app-edit *ngIf="controller.current.edit"></app-edit>
   <app-list *ngIf="controller.current.list"></app-list>
 </div>

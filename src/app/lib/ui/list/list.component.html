@@ -1,3 +1,20 @@
-<p>
-  list works!
-</p>
+
+<div class="basic-container">
+  <h1 mat-subheader *ngIf="data.getData().length!=0">Список закладок</h1>
+	<mat-list *ngIf="data.getData().length!=0">
+		<mat-list-item *ngFor="let bookmark of data.getData()" >
+      <div >
+        <span class="text" matTooltip="{{bookmark.url}}">{{bookmark.name}}</span>
+        <span class="text"><a [href]="bookmark.url" target="_blank">
+          {{bookmark.shortUrl}}
+        </a></span>
+        <span class="text" (click)="onOpenEditComponent(bookmark)">Изменить</span>
+        <span class="text" (click)="onOpenDeleteDialog(bookmark)">Удалить</span>
+        <span align="right">{{bookmark.date}}</span>
+      </div>
+		</mat-list-item>
+	</mat-list>
+  <div *ngIf="data.getData().length==0">
+    <h2>Упс, кажется у вас ещё нету закладок...</h2>
+  </div>
+</div>

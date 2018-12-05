@@ -10,6 +10,9 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es5",
+    "types": [
+      "hammerjs"
+    ],
     "typeRoots": [
       "node_modules/@types"
     ],
@@ -20,6 +23,6 @@
     "paths": {
       "@ app / *": ["app / *"],
       "@ env / *": ["environment / *"]
-    } 
+    },
   }
 }

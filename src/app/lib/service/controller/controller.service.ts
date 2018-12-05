@@ -1,30 +1,46 @@
 import { Injectable } from '@angular/core';
+import { Components } from '../../model/components';
+import { DataService } from '../data/data.service';
+import { Bookmark } from '../../model/components';
 
-interface Component {
-  add: boolean;
-  list: boolean;
-}
 
 @Injectable({
   providedIn: 'root'
 })
 export class ControllerService {
-  current:Component;
+  current:Components;
 
-  constructor() {
+  constructor(public data: DataService) {
     this.current = {
       add:false,
-      list:true
+      list:true,
+      edit:false
     }
   }
 
-  setAddComponent(){
+  setAddComponent(): void {
     for (let item in this.current) this.current[item]=false;
     this.current.add = true;
   }
 
-  setListComponent(){
+  setListComponent(): void {
     for (let item in this.current) this.current[item]=false;
     this.current.list = true;
+  }
+
+  setEditComponent(bookmark : Bookmark): void {
+    for (let item in this.current) this.current[item]=false;
+    this.current.edit = true;
+    this.data.setCurrentBookmark(bookmark);
+  }
+
+  remove(item : Bookmark): void {
+    this.data.removeItem(item);
+    this.setListComponent();
+  }
+
+  update(): void {
+    this.data.update();
+    this.setListComponent();
   }
 }

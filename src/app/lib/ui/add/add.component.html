@@ -1,0 +1,33 @@
+<table>
+  <tr>
+    <td>
+      <h1 *ngIf="controller.current.add">Добавить закладку</h1>
+      <h1 *ngIf="controller.current.edit">Изменить закладку</h1>
+    </td>
+  </tr>
+  <tr><td></td></tr>
+  <tr>
+    <mat-form-field appearance="outline">
+      <mat-label>Название:</mat-label>
+      <input [(ngModel)]="name" matInput maxlength="30" placeholder="Введите название для закладки" [formControl]="nameFormControl">
+      <mat-error *ngIf="nameFormControl.invalid">
+        Введите <strong>название</strong> для закладки
+      </mat-error>
+    </mat-form-field>
+  </tr>
+  <tr>
+    <mat-form-field appearance="outline">
+      <mat-label>Адрес (URL):</mat-label>
+      <input [(ngModel)]="url" type="url" maxlength="500" matInput placeholder="Введите URL адрес" [formControl]="urlFormControl">
+      <mat-error *ngIf="urlFormControl.invalid">
+        URL является <strong>некорректным</strong>
+      </mat-error>
+    </mat-form-field>
+  </tr>
+  <tr>
+    <div align="right">
+      <button mat-raised-button (click)="onCancel()" color="warn">Отмена</button>
+      <button mat-raised-button (click)="onSave()" color="primary">Добавить закладку</button>
+    </div>
+  </tr>
+</table>

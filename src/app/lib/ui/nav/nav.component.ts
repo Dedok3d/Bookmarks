@@ -13,11 +13,13 @@ export class NavComponent implements OnInit {
   ngOnInit() {
   }
 
-  onOpenAddComponent(){
+  onOpenAddComponent(): void {
     this.controller.setAddComponent();
   }
 
-  onOpenListComponent(){
+  onOpenListComponent(): void {
     this.controller.setListComponent();
   }
+
+
 }
